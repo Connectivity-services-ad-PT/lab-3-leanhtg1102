@@ -1,0 +1,7 @@
+Test Case ID,Folder,Endpoint,HTTP Method,Input Description,Expected Status,Test Type
+TC-001,01_Functional,/alerts,POST,Valid fully alert payload,201,Happy Path
+TC-002,02_Auth,/alerts,POST,Missing Authorization Bearer Header,401,Security Auth Test
+TC-003,03_Negative,/alerts,POST,Empty raw body object,400,Validation Negative Test
+TC-004,04_Boundary_Reliability,/alerts,POST,Extremely high threshold value data,201,Boundary Test
+TC-005,05_Consumer_side_Smoke,/detect,POST,Trigger downstream mock AI vision service,200,Integration Smoke Test
+TC-006,06_Local_only_NonFunctional,/alerts,GET,Measure backend real system SLA latency,200,Performance Non-Functional

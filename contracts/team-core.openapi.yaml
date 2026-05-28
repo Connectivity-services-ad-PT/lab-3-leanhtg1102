@@ -259,9 +259,7 @@ components:
       required: false
       description: Cursor dùng để lấy trang tiếp theo.
       schema:
-        type: [string, 'null']
-        minLength: 1
-        maxLength: 200
+        type: string
     Limit:
       name: limit
       in: query
@@ -322,9 +320,9 @@ components:
           description: Nội dung cảnh báo.
           example: Phát hiện truy cập trái phép tại cổng chính
         relatedEventId:
-          type: [string, 'null']
+          type: string
           format: uuid
-          description: Event liên quan, có thể null nếu chưa có event id.
+          description: Event liên quan.
           example: 0196fb3d-4ad7-7d1e-9f49-5d5148d2babc
 
     Alert:
@@ -332,7 +330,7 @@ components:
         - $ref: '#/components/schemas/CreateAlertRequest'
         - type: object
           additionalProperties: false
-          required: [id, status, createdAt, resolvedAt]
+          required: [id, status, createdAt]
           properties:
             id:
               type: string
@@ -350,10 +348,10 @@ components:
               description: Thời điểm tạo alert.
               example: '2026-05-10T08:00:00Z'
             resolvedAt:
-              type: [string, 'null']
+              type: string
               format: date-time
-              description: Thời điểm xử lý xong, null nếu chưa xử lý.
-              example: null
+              description: Thời điểm xử lý xong.
+              example: '2026-05-10T09:00:00Z'
 
     AlertSeverity:
       type: string
@@ -364,7 +362,7 @@ components:
     AlertPage:
       type: object
       additionalProperties: false
-      required: [items, nextCursor, hasMore]
+      required: [items, hasMore]
       properties:
         items:
           type: array
@@ -373,9 +371,9 @@ components:
           items:
             $ref: '#/components/schemas/Alert'
         nextCursor:
-          type: [string, 'null']
-          description: Cursor trang tiếp theo, null nếu hết dữ liệu.
-          example: null
+          type: string
+          description: Cursor trang tiếp theo.
+          example: 'page-2-cursor'
         hasMore:
           type: boolean
           description: Còn dữ liệu ở trang sau hay không.

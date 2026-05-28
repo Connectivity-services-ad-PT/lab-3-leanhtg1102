@@ -5,10 +5,8 @@
   "main": "index.js",
   "scripts": {
     "lint:contract": "npx @stoplight/spectral-cli lint contracts/*.yaml",
-    "mock:core": "npx @stoplight/prism-cli mock contracts/iot-ingestion.openapi.yaml -p 4010",
-    "mock:vision": "npx @stoplight/prism-cli mock contracts/ai-vision.openapi.yaml -p 4011",
-    "test:mock": "npx newman run postman/collections/FIT4110_lab03_iot_ingestion.postman_collection.json -e postman/environments/FIT4110_lab03_mock.postman_environment.json -r cli,junit,htmlextra --reporter-junit-export reports/newman-report.xml --reporter-htmlextra-export reports/newman-report.html",
-    "test:local": "npx newman run postman/collections/FIT4110_lab03_iot_ingestion.postman_collection.json -e postman/environments/FIT4110_lab03_local.postman_environment.json -r cli,junit,htmlextra --reporter-junit-export reports/newman-local-report.xml --reporter-htmlextra-export reports/newman-local-report.html"
+    "mock:core": "npx @stoplight/prism-cli mock contracts/team-core.openapi.yaml -p 4010",
+    "test:mock": "npx newman run postman/collections/FIT4110_lab03_team-core.postman_collection.json -e postman/environments/FIT4110_lab03_team-core_mock.postman_environment.json -r cli,junit,htmlextra --reporter-junit-export reports/newman-report.xml --reporter-htmlextra-export reports/newman-report.html"
   },
   "dependencies": {},
   "devDependencies": {

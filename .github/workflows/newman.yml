@@ -28,7 +28,7 @@ jobs:
     - name: Start Prism Mock Server in Background
       run: |
         prism mock contracts/team-core.openapi.yaml -p 4010 &
-        sleep 3
+        sleep 5
 
     - name: Run Postman Tests with Newman
       run: |
